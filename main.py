@@ -27,11 +27,9 @@ def ascii():
     result = pyfiglet.figlet_format("PokeCardEX") 
     print(result) 
 
-def input():
-    input = input("Enter a command: ")
-
-def print():
-    if input == "help":
+def input_com():
+    x = input("Enter a command: ")
+    if x == "help":
         print("Type 'help' to see this message again.")
         print("Type 'exit' to quit the program.")
         print("Type 'search' to search for a card.")
@@ -43,7 +41,7 @@ def print():
         time.sleep(3)
         exit()
 
-    elif input == "search":
+    elif "search" in x:
         card = input("Enter the name of the card you want to search for: ")
         card = Card.where(name=card)
         print(card)
@@ -54,5 +52,4 @@ def print():
         exit()
 
 ascii()
-input()
-print()
+input_com()
