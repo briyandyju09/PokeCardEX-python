@@ -1,20 +1,19 @@
-#Importing All packages
-import pandas as pd#data manipulation
-import requests#web scraping
-from bs4 import BeautifulSoup#web scraping
-from datetime import datetime#date and time
-import time#sleep
-import os#file management
-import tkinter as tk#gui
-from tkinter import filedialog#gui
-from tqdm import tqdm #progress bar
-import math#math
-import openpyxl#excel
-import pyfiglet#ascii art
+import pandas as pd  # data manipulation
+import requests  # web scraping
+from bs4 import BeautifulSoup  # web scraping
+from datetime import datetime  # date and time
+import time  # sleep
+import os  # file management
+import tkinter as tk  # gui
+from tkinter import filedialog  # gui
+from tqdm import tqdm  # progress bar
+import math  # math
+import openpyxl  # excel
+import pyfiglet  # ascii art
 from pyfiglet import Figlet
 import re
-from decimal import Decimal#decimal
-from pokemontcgsdk import Card#pokemontcgsdk
+from decimal import Decimal  # decimal
+from pokemontcgsdk import Card  # pokemontcgsdk
 from pokemontcgsdk import Set
 from pokemontcgsdk import Type
 from pokemontcgsdk import Supertype
@@ -22,18 +21,15 @@ from pokemontcgsdk import Subtype
 from pokemontcgsdk import Rarity
 from pokemontcgsdk import RestClient
 
-#Setting up the API
-
+# Setting up the API
 RestClient.configure('f1624ad8-1cf7-4ea2-b55c-b01122c54aaa')
 
-#Defining the ASCII Art
-
+# Defining the ASCII Art
 def ascii():
-    result = pyfiglet.figlet_format("PokeCardEX") 
-    print(result) 
+    result = pyfiglet.figlet_format("PokeCardEX")
+    print(result)
 
-#Defining the input command
-
+# Defining the input command
 def input_com():
     x = input("Enter a command: ")
     if x == "help":
@@ -67,11 +63,23 @@ def input_com():
         types = Type.all()
         print(types)
 
+    elif "supertype" in x:
+        supertypes = Supertype.all()
+        print(supertypes)
+
+    elif "subtype" in x:
+        subtypes = Subtype.all()
+        print(subtypes)
+
+    elif "rarity" in x:
+        rarities = Rarity.all()
+        print(rarities)
+
     else:
         print("Invalid command. Type 'help' to see a list of commands.")
         time.sleep(3)
         exit()
 
-#Running the functions
+# Running the functions
 ascii()
 input_com()
