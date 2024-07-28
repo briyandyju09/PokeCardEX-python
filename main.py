@@ -41,6 +41,7 @@ def input_com():
         print("Type 'exit' to quit the program.")
         print("Type 'search' to search for a card.")
         print("Type 'set' to search for a set.")
+        print("Type 'setall' to get all sets.")
         print("Type 'type' to search for a type.")
         print("Type 'supertype' to search for a supertype.")
         print("Type 'subtype' to search for a subtype.")
@@ -52,6 +53,19 @@ def input_com():
         card = input("Enter the name of the card you want to search for: ")
         card = Card.where(name=card)
         print(card)
+
+    elif "set" in x:
+        set = input("Enter the name of the set you want to search for: ")
+        set = Set.where(name=set)
+        print(set)
+
+    elif x == "setall":
+        sets = Set.all()
+        print(sets)
+
+    elif "type" in x:
+        types = Type.all()
+        print(types)
 
     else:
         print("Invalid command. Type 'help' to see a list of commands.")
